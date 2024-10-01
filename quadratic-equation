@@ -1,0 +1,52 @@
+import java.util.*;
+class Equation{
+int a,b,c;
+double r1,r2,d;
+
+void getd()
+{
+Scanner input=new Scanner(System.in);
+while (a==0){
+System.out.println("Enter coeffcient of a");
+a=input.nextInt();
+if (a==0){
+System.out.println("Enter a non-zero value to coeffcient a");
+}
+}
+System.out.println("Enter coeffcient of b");
+b=input.nextInt();
+System.out.println("Enter coeffcient of c");
+c=input.nextInt();
+d=(b*b)-(4*a*c);
+if (d==0)
+{
+r1=(-b)/(2*a);
+System.out.println("Roots are real and equal  root 1 and root 2 is"+ r1);
+}
+else if (d>0)
+{
+r1=((-b) + (Math.sqrt(d)))/(double)(2*a);
+r2=((-b) - (Math.sqrt(d)))/(double)(2*a);
+System.out.println("Roots are real ");
+System.out.println("Root 1 "+r1);
+System.out.println("Root 2 "+r2);
+}
+else if(d<0)
+{
+r1=(-b)/(2*a);
+r2 = Math.sqrt(-d)/(2*a);
+System.out.println("Roots are real and imaginary  ");
+System.out.println("Root 1 : "+ r1);
+System.out.println("Root 2 : "+ r2);
+}
+}
+}
+
+public class quadratic1{
+public static void main(String args[]){
+Equation equation1=new Equation();
+equation1.getd();
+System.out.println("Mahesha G S");
+System.out.println("USN : 24BECS429");
+}
+}
