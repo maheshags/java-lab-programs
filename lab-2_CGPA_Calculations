@@ -1,0 +1,62 @@
+import java.util.Scanner;
+public class Subjects{
+	int marks,credits,grade;
+	}
+public class student {
+		Subjects subject[];
+		String name,usn;
+		double SGPA;
+		Scanner input=new Scanner(System.in);
+		
+		student()
+		{
+		int i;
+		subject= new Subjects[9];
+		for(i=0;i<9;i++)
+		subject[i] = new Subjects(); 
+		
+		}
+		void getstudet() {
+			System.out.print("ENTER YOUR NAME:");
+			name=input.nextLine();
+			System.out.print("ENTER YOUR USN NUMBER");
+			usn=input.nextLine();
+		}
+		void getmarks() {
+			for(int i=0;i<9;i++) {
+				System.out.println("Enter marks of subject "+(i+1)+":");
+				subject[i].marks=input.nextInt();
+				System.out.println("Enter credits of subject "+(i+1)+":");
+				subject[i].credits=input.nextInt();
+				subject[i].grade=(subject[i].marks/10)+1;
+				if (subject[i].grade>=11)
+					subject[i].grade=10;
+				else if(subject[i].grade<=4)
+					subject[i].grade=0;
+			}
+		}
+		void computeSGPA(){
+			double points=0;
+			double totalcredits=0;
+			for (int i=0;i<9;i++) {
+				int sub=subject[i].credits*subject[i].grade;
+				points=points+sub;
+				totalcredits=totalcredits+subject[i].credits;
+			}
+			SGPA=points/totalcredits;
+			System.out.println("SGPA of the student is : "+SGPA);
+			}	
+}
+
+public class main{
+	public static void main(String args[]) {
+		student s1 = new student();
+		s1.getstudet();
+		s1.getmarks();
+		System.out.println("Name:"+s1.name);
+		System.out.println("USN:"+s1.usn);
+		s1.computeSGPA();
+
+	}
+}
+
